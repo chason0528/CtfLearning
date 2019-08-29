@@ -102,7 +102,7 @@ def hook_code(mu, address, size, user_data):
             if i != 0:
                 needle_decipher.append(keys.index(i))
 
-        # start decipher now
+        # start decipher now 
         sss = b''
         for i in range(len(needle_decipher)//4):
             a = (needle_decipher[4*i] << 2 & 0xFF) | ((needle_decipher[4*i+1]//16) & 3)
@@ -111,6 +111,7 @@ def hook_code(mu, address, size, user_data):
             sss += a.to_bytes(1, "little")
             sss += b.to_bytes(1, "little")
             sss += c.to_bytes(1, "little")
+        # The result is right by chance. Actually, we need to traverse it.
         print(sss)
 
         print(haystack)
